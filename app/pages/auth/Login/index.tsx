@@ -10,6 +10,9 @@ import { login, recoverPassword } from "../../../services";
 import { useStoreContext } from "../../../store";
 import  { useNavigation } from "@react-navigation/native";
 
+import SVGIcon from '../../../shared/components/svg'
+import TitleComponent from "../../../shared/components/title";
+
 const Login = () => {
 
     let { userData } = useStoreContext()
@@ -77,27 +80,32 @@ const Login = () => {
 
     return (
         <>
-            <View style={{width: '100%'}}>
-                <Formik initialValues={{email: '', pass: ''}}
-                        onSubmit={(values: any, actions: any) => handleSubmit(values, actions)} validationSchema={formSchema}
-                        style={{flex: 1}}>
-                    {
-                        ({values, handleChange, handleSubmit, errors, touched, setFieldTouched}) => (
-                            <View style={{paddingHorizontal: 40, paddingVertical: 20}}>
-                                <TextInput
-                                    mode={'outlined'}
-                                    ref={email}
-                                    value={values.email}
-                                    onChangeText={handleChange('email')}
-                                    style={[Styles.input, {marginBottom: 10}]}
-                                    placeholderTextColor='purple'
-                                    label={'Email'}
-                                    keyboardType={'email-address'}
-                                    onBlur={() => setFieldTouched('email')}
-                                />
-                                {
-                                    errors.email && touched.email &&
-                                    <HelperText type={'error'}>{errors.email}</HelperText>}
+            <View style={Styles.container}>
+                <View>
+                    <SVGIcon.LOGO width={80} height={80} />
+                </View>
+                <TitleComponent title={'Login'} />
+                <View style={{ width: '100%' }}>
+                    <Formik initialValues={{email: '', pass: ''}}
+                            onSubmit={(values: any, actions: any) => handleSubmit(values, actions)} validationSchema={formSchema}
+                            style={{flex: 1}}>
+                        {
+                            ({values, handleChange, handleSubmit, errors, touched, setFieldTouched}) => (
+                                <View style={{paddingHorizontal: 40, paddingVertical: 20}}>
+                                    <TextInput
+                                        mode={'outlined'}
+                                        ref={email}
+                                        value={values.email}
+                                        onChangeText={handleChange('email')}
+                                        style={[Styles.input, {marginBottom: 10}]}
+                                        placeholderTextColor='purple'
+                                        label={'Email'}
+                                        keyboardType={'email-address'}
+                                        onBlur={() => setFieldTouched('email')}
+                                    />
+                                    {
+                                        errors.email && touched.email &&
+                                        <HelperText type={'error'}>{errors.email}</HelperText>}
                                     <View style={Styles.containerSenhas}>
                                         <TextInput
                                             mode={'outlined'}
@@ -118,18 +126,19 @@ const Login = () => {
                                         />
                                     </View>
                                     {errors.pass && touched.pass && <HelperText type={'error'}>{errors.pass}</HelperText>}
-                                    <Button onPress={handleSubmit} buttonColor={Colors.primary} title={'Entrar'} type={"solid"}
+                                    <Button onPress={handleSubmit} buttonColor={Colors.secondary} title={'Entrar'} type={"solid"}
                                             backgroundStyle={{alignSelf: 'center', width: '100%', marginTop: 20}}/>
-                                    <Button onPress={handleRedirect} buttonColor={Colors.fontLigth} title={'Não possui conta?'} type={"outlined"}
+                                    <Button onPress={handleRedirect} buttonColor={Colors.secondary} title={'Não possui conta?'} type={"outlined"}
                                             backgroundStyle={{alignSelf: 'center', width: '100%', marginTop: 20}}/>
                                     <Button onPress={() => setShowModalRecoverPass(true)} type={"text"}
-                                            buttonColor={Colors.fontLigth} title={'Resetar Senha'}
+                                            buttonColor={Colors.secondary} title={'Resetar Senha'}
                                             backgroundStyle={{alignSelf: 'center', width: '100%', marginTop: 20}}
                                     />
-                            </View>
-                        )
-                    }
-                </Formik>
+                                </View>
+                            )
+                        }
+                    </Formik>
+                </View>
             </View>
             <Modal visible={loading} >
                 <ActivityIndicator size={'large'} color={Colors.primary}/>

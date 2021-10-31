@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
-import {StatusBar} from "expo-status-bar"
-import {useStoreContext} from "../../store"
-import {observer, inject} from "mobx-react"
+import React, { useEffect, useState } from 'react'
+import { observer, inject } from "mobx-react"
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StatusBar } from "expo-status-bar"
+import { useStoreContext } from "../../store"
+import { Styles } from "../../shared";
+import SVGIcon from "../../shared/components/svg";
+import TitleComponent from "../../shared/components/title";
+import List from "../../components/list";
+import SortComponent from "../../components/sort";
 
 type Props = any
 
@@ -26,7 +31,14 @@ const Home = (props: Props) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={Styles.container}>
+            <View>
+                <SVGIcon.LOGO width={80} height={80} />
+            </View>
+            <View style={{ width: '100%' }}>
+                <SortComponent />
+                <List />
+            </View>
         </View>
     )
 }

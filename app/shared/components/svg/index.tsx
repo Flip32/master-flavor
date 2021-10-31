@@ -10,6 +10,9 @@ import PAUSE from './icons/pauseIcon.svg'
 import STOP from './icons/stopIcon.svg'
 import NEXT from './icons/nextIcon.svg'
 import PREVIOUS from './icons/previousIcon.svg'
+import LOGO from './icons/logo.svg'
+import CHEVRON_DOWN from './icons/chevron-down.svg'
+import CHEVRON_UP from './icons/chevron-up.svg'
 
 export default {
     YOUTUBE,
@@ -24,4 +27,7 @@ export default {
     STOP,
     NEXT,
     PREVIOUS,
+    LOGO,
+    CHEVRON_DOWN,
+    CHEVRON_UP,
 }
