@@ -12,7 +12,7 @@ import {useNavigation} from "@react-navigation/native";
 import MenuTab from "../../../components/menu";
 
 type rating = {
-    id: number
+    id: string
     name: string
     rating: number
     description: string
@@ -24,20 +24,13 @@ const Ratings = (props: any) => {
     const item = props.route?.params?.item
     const title = !!item ? 'EDITAR' :'ADICIONAR'
     const { goBack } = useNavigation()
-    const [editValues, setEditValues] = useState<rating | undefined>(undefined)
-
-    const initialValues = {
-        name: editValues?.name || '',
-        description: editValues?.description || '',
-        rating: editValues?.rating || 0,
-        brand: editValues?.brand || ''
-    }
-
-    useEffect(() => {
-        if(!!item) {
-            setEditValues(item)
-        }
-    }, [item])
+    const [initialValues, setInitialValues] = useState<rating>({
+        id: item?.id,
+        name: item?.name || '',
+        rating: item?.rating || 0,
+        description: item?.description || '',
+        brand: item?.brand || ''
+    })
 
     const formSchema = Yup.object().shape({
         name: Yup.string()
@@ -84,7 +77,7 @@ const Ratings = (props: any) => {
                                 <View style={{ marginBottom: 40 }}>
                                     <AirbnbRating
                                         count={5}
-                                        defaultRating={0}
+                                        defaultRating={values.rating}
                                         size={30}
                                         isDisabled={false}
                                         starContainerStyle={{ paddingHorizontal: 5 }}
