@@ -8,6 +8,7 @@ import SVGIcon from "../../shared/components/svg";
 import TitleComponent from "../../shared/components/title";
 import List from "../../components/list";
 import SortComponent from "../../components/sort";
+import MenuTab from "../../components/menu";
 
 type Props = any
 
@@ -39,6 +40,7 @@ const Home = (props: Props) => {
                 <SortComponent />
                 <List />
             </View>
+            <MenuTab />
         </View>
     )
 }

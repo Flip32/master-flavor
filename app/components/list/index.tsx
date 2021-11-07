@@ -25,7 +25,7 @@ const List = (props: Props) => {
     }
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <ItemList />
             <ItemList />
             <ItemList />
@@ -42,5 +42,6 @@ const List = (props: Props) => {
 export default inject('store')(observer(List));
 
 const styles = StyleSheet.create({
-    container: {},
+    container: { },
+    contentContainer: { paddingBottom: 60},
 })

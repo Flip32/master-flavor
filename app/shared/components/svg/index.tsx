@@ -13,6 +13,9 @@ import PREVIOUS from './icons/previousIcon.svg'
 import LOGO from './icons/logo.svg'
 import CHEVRON_DOWN from './icons/chevron-down.svg'
 import CHEVRON_UP from './icons/chevron-up.svg'
+import SEARCH_LEFT from './icons/search_left.svg'
+import NARGS_ICON from './icons/nargs_icon.svg'
+import USER_ICON from './icons/user.svg'
 
 export default {
     YOUTUBE,
@@ -30,4 +33,7 @@ export default {
     LOGO,
     CHEVRON_DOWN,
     CHEVRON_UP,
+    SEARCH_LEFT,
+    NARGS_ICON,
+    USER_ICON,
 }
