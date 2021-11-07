@@ -115,6 +115,17 @@ const Styles = StyleSheet.create({
         marginTop: 5,
         fontWeight: '500'
     },
+    logoTitleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 24,
+        marginBottom: 0
+    },
+    logoAbsolute: {
+        position: "absolute",
+        left: 0
+    },
 })
 
 export { FontSizes, Colors, Styles }
